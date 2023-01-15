@@ -9,4 +9,4 @@ for _ in range(c):
         if n > avg:
             count += 1
     prob = count/float(nlist[0])
-    print("{:.3f}%".format(prob * 100))
+    print(f"{prob*100:.3f}%")
