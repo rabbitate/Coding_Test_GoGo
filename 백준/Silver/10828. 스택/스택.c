@@ -61,16 +61,16 @@ int main() {
     
     for(int i = 0; i < input; i++) {
         scanf("%s", cmd);
-        if (strcmp(cmd,"push") == 0) {
+        if (!strcmp(cmd,"push")) {
             scanf("%d", &n);
             Push(&stack, n);
-        } else if (strcmp(cmd,"top") == 0) {
+        } else if (!strcmp(cmd,"top")) {
             printf("%d\n", Peek(&stack));
-        } else if (strcmp(cmd,"size") == 0) {
+        } else if (!strcmp(cmd,"size")) {
             printf("%d\n", getCount(&stack));
-        } else if (strcmp(cmd,"empty") == 0) {
+        } else if (!strcmp(cmd,"empty")) {
             printf("%d\n", IsEmpty(&stack));
-        } else if (strcmp(cmd,"pop") == 0) {
+        } else if (!strcmp(cmd,"pop")) {
             printf("%d\n", Pop(&stack));
         }
     }
