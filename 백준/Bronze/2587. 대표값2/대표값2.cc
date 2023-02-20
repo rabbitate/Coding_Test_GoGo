@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void InsertionSort(int narray[], int size) {
+void SelectionSort(int narray[], int size) {
     for(int i = 0; i < size-1; i++) {
         int min = i;
         for(int j = i+1; j <= size-1; j++) {
@@ -23,7 +23,7 @@ int main () {
         scanf("%d", &narray[i]);
     }
 
-    InsertionSort(narray, 5);
+    SelectionSort(narray, 5);
 
     int sum = 0;
 
