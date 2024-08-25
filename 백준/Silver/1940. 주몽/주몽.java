@@ -22,29 +22,47 @@ public class Main {
         Arrays.sort(materialArray);
 
         int firstIndex = 0;
-        int secondIndex = 1;
-        int sum;
+        int secondIndex = n-1;
         int count = 0;
 
-        while (firstIndex < n-1) {
-            sum = materialArray[firstIndex] + materialArray[secondIndex];
+        while (firstIndex < secondIndex) {
+            int sum = materialArray[firstIndex] + materialArray[secondIndex];
 
             if (sum == m) {
                 count++;
                 firstIndex++;
-                secondIndex = firstIndex + 1;
+                secondIndex--;
             } else if (sum < m) {
-                if (secondIndex < n-1) {
-                    secondIndex++;
-                } else {
-                    firstIndex++;
-                    secondIndex = firstIndex + 1;
-                }
-            } else {
                 firstIndex++;
-                secondIndex = firstIndex + 1;
+            } else {
+                secondIndex--;
             }
         }
+
+//        int firstIndex = 0;
+//        int secondIndex = 1;
+//        int sum;
+//        int count = 0;
+//
+//        while (firstIndex < n-1) {
+//            sum = materialArray[firstIndex] + materialArray[secondIndex];
+//
+//            if (sum == m) {
+//                count++;
+//                firstIndex++;
+//                secondIndex = firstIndex + 1;
+//            } else if (sum < m) {
+//                if (secondIndex < n-1) {
+//                    secondIndex++;
+//                } else {
+//                    firstIndex++;
+//                    secondIndex = firstIndex + 1;
+//                }
+//            } else {
+//                firstIndex++;
+//                secondIndex = firstIndex + 1;
+//            }
+//        }
 
         System.out.println(count);
     }
