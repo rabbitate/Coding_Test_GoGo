@@ -36,6 +36,6 @@ public class Main {
             }
         }
 
-        System.out.println(stringBuffer.toString());
+        System.out.println(stringBuffer);
     }
 }
