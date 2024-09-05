@@ -39,17 +39,11 @@ public class Main {
         if (array[index] == index) {
             return index;
         } else {
-            return find(array[index]);
+            return array[index] = find(array[index]);
         }
     }
 
     static void union(int start, int end) {
-        int tempIndex = end;
-        while (array[tempIndex] != end) {
-            int temp = tempIndex;
-            tempIndex = array[tempIndex];
-            array[temp] = start;
-        }
-        array[tempIndex] = start;
+        array[end] = start;
     }
 }
