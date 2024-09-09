@@ -2,22 +2,22 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int[][] sizes) {
-        int max = 0;
-        int min = 0;
+        int max_x = 0;
+        int max_y = 0;
         
         for (int i = 0; i < sizes.length; i++) {
             Arrays.sort(sizes[i]);
             int x = sizes[i][0];
             int y = sizes[i][1];
             
-            if (max < x) {
-                max = x;
+            if (max_x < x) {
+                max_x = x;
             }
-            if (min < y) {
-                min = y;
+            if (max_y < y) {
+                max_y = y;
             }
         }
         
-        return max * min;
+        return max_x * max_y;
     }
 }
