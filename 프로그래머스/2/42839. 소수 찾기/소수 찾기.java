@@ -6,7 +6,7 @@ class Solution {
     static Set<Integer> set;
     public int solution(String numbers) {
         int answer = 0;
-         set = new HashSet<>();
+        set = new HashSet<>();
         
         dfs(numbers, "", 0);
         
