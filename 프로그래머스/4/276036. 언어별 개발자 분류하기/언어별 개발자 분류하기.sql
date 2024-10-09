@@ -1,0 +1,23 @@
+WITH G AS (
+    SELECT CASE
+        WHEN (SELECT COUNT(*)
+            FROM SKILLCODES
+            WHERE SKILL_CODE & CODE AND CATEGORY = 'Front End') > 0
+            AND SKILL_CODE & (SELECT CODE
+            FROM SKILLCODES
+            WHERE NAME = 'Python'
+            ) THEN 'A'
+        WHEN SKILL_CODE & (SELECT CODE
+             FROM SKILLCODES
+             WHERE NAME = 'C#') THEN 'B'
+        WHEN (SELECT COUNT(*)
+             FROM SKILLCODES
+             WHERE SKILL_CODE & CODE AND CATEGORY = 'Front End') > 0 THEN 'C'
+        END GRADE, ID, EMAIL
+        FROM DEVELOPERS
+)
+
+SELECT *
+FROM G
+WHERE GRADE IS NOT NULL
+ORDER BY GRADE ASC, ID ASC
