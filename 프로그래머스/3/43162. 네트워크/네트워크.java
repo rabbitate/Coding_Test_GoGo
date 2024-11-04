@@ -1,37 +1,30 @@
-import java.util.ArrayList;
-
 class Solution {
-    static boolean[][] visited;
-    static int[][] computer;
-    public int solution(int n, int[][] computers) {
-        visited = new boolean[n][n];
-        computer = computers;
-        int answer = 0;
-        
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (!visited[i][j] && computers[i][j] == 1) {
-                    dfs(i, j);
-                    answer++;
-                }
+    static boolean[] visited;
+    static int[][] com;
+    static int len;
+    
+    static void dfs(int i) {
+        visited[i] = true;
+        for(int k = 0; k < len; k++) {
+            if(!visited[k] && i != k && com[i][k] == 1) {
+                dfs(k);
             }
+        }
+    }
+    
+    public int solution(int n, int[][] computers) {
+        int answer = 0;
+        len = n;
+        com = computers;
+        visited = new boolean[n];
+        
+        for(int i = 0; i < n; i++) {
+            if(!visited[i]) {
+                dfs(i);
+                answer++;
+            }   
         }
         
         return answer;
-    }
-    
-    void dfs(int x, int y) {
-        if (visited[x][y]) {
-            return;
-        }
-        
-        visited[x][y] = true;
-        visited[y][x] = true;
-        
-        for (int i = 0; i < computer.length; i++) {
-            if (computer[y][i] == 1) {
-                dfs(y, i);
-            }
-        }
     }
 }
